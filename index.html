@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Personal Portfolio of Deepika Goreti, Computer Science & Engineering Student at Stanley College of Engineering and Technology for Women. Built with HTML5, CSS3, Bootstrap 5.3, and JavaScript ES6+.">
+  <meta name="author" content="Deepika Goreti">
+  <title>Deepika Goreti | Software Developer & CSE Student</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
+
+  <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+  <!-- Font Awesome 6.5.1 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-bs-spy="scroll" data-bs-target="#floatingNavbar" data-bs-offset="100" tabindex="0">
+
+  <!-- Accessible Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- =========================================================================
+       1. FLOATING GLASS NAVIGATION BAR
+       ========================================================================= -->
+  <div class="floating-navbar-container">
+    <nav id="floatingNavbar" class="floating-navbar d-flex align-items-center justify-content-between" aria-label="Main Navigation">
+      <!-- Brand & Stanley College Crest -->
+      <a class="nav-brand-group text-decoration-none" href="#home">
+        <img src="assets/images/stanley-logo.svg" alt="Stanley College Crest" class="nav-crest-img">
+        <span>Deepika Goreti<span class="text-primary">.</span>dev</span>
+      </a>
+
+      <!-- Desktop Links -->
+      <div class="d-none d-lg-flex align-items-center gap-1">
+        <a class="nav-link-pill active" href="#home">Home</a>
+        <a class="nav-link-pill" href="#about">About</a>
+        <a class="nav-link-pill" href="#education">Education</a>
+        <a class="nav-link-pill" href="#skills">Skills</a>
+        <a class="nav-link-pill" href="#projects">Projects</a>
+        <a class="nav-link-pill" href="#certifications">Credentials</a>
+        <a class="nav-link-pill" href="#contact">Contact</a>
+      </div>
+
+      <!-- Action Buttons: Theme Toggle & Contact -->
+      <div class="d-flex align-items-center gap-2">
+        <button id="themeToggleBtn" class="theme-pill-btn" type="button" aria-label="Toggle Dark and Light mode">
+          <i id="themeIcon" class="fa-solid fa-moon text-primary"></i>
+          <span id="themeText">Dark</span>
+        </button>
+        <a href="#contact" class="btn-solid-brand d-none d-sm-inline-flex py-2 px-3 small">
+          <i class="fa-solid fa-paper-plane"></i> Let's Talk
+        </a>
+      </div>
+    </nav>
+  </div>
+
+  <!-- =========================================================================
+       2. MAIN CONTENT
+       ========================================================================= -->
+  <main id="main-content">
+
+    <!-- -----------------------------------------------------------------------
+         HERO SECTION (High-Contrast, Centered, Clean)
+         ----------------------------------------------------------------------- -->
+    <section id="home" class="hero-block text-center">
+      <div class="container">
+        <!-- Institution Status Chip -->
+        <div class="hero-college-badge">
+          <i class="fa-solid fa-graduation-cap text-primary"></i>
+          <span>B.Tech CSE • Stanley College of Engineering &amp; Technology for Women</span>
+        </div>
+
+        <h1 class="hero-title-text">
+          Hi, I'm <span class="hero-gradient">Deepika Goreti</span>.
+        </h1>
+
+        <p class="hero-sub-bio">
+          Computer Science &amp; Engineering student at <strong class="text-body">Stanley College of Engineering and Technology for Women</strong>, affiliated with Osmania University, Hyderabad. Passionate about software development, web technologies, and Artificial Intelligence.
+        </p>
+
+        <!-- CTAs -->
+        <div class="d-flex flex-wrap gap-3 justify-content-center mb-4">
+          <a href="#projects" class="btn-solid-brand">
+            <i class="fa-solid fa-folder-open"></i> Explore Projects
+          </a>
+          <a href="#contact" class="btn-outline-brand">
+            <i class="fa-solid fa-envelope"></i> Get In Touch
+          </a>
+          <a href="#about" class="btn-outline-brand">
+            <i class="fa-solid fa-user"></i> View Profile
+          </a>
+        </div>
+
+        <!-- 4 Animated Metrics Strip -->
+        <div class="hero-metrics-strip" id="statsCounterContainer">
+          <!-- Populated dynamically by js/main.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- -----------------------------------------------------------------------
+         ABOUT ME (Bento Grid Architecture - Clean & Structured)
+         ----------------------------------------------------------------------- -->
+    <section id="about" class="content-section bg-body-tertiary">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-pill-tag">// ABOUT ME</span>
+          <h2 class="section-main-heading">Background &amp; Profile</h2>
+          <p class="section-subtext">A structured overview of my academic trajectory and engineering principles.</p>
+        </div>
+
+        <!-- Bento Grid: 2 Clean Cards -->
+        <div class="row g-4 align-items-stretch">
+          <!-- Bento Card 1: Student Details -->
+          <div class="col-12 col-lg-5">
+            <aside class="bento-card">
+              <div class="bento-icon-box">
+                <i class="fa-solid fa-id-card"></i>
+              </div>
+              <h3 class="h5 fw-bold mb-3">Student Information</h3>
+
+              <dl class="bento-meta-table">
+                <dt><i class="fa-regular fa-user text-primary me-1"></i> Name:</dt>
+                <dd>Deepika Goreti</dd>
+
+                <dt><i class="fa-solid fa-building-columns text-primary me-1"></i> Institution:</dt>
+                <dd>Stanley College of Engg. &amp; Tech. for Women</dd>
+
+                <dt><i class="fa-solid fa-microchip text-primary me-1"></i> Department:</dt>
+                <dd>Computer Science &amp; Engineering</dd>
+
+                <dt><i class="fa-solid fa-calendar-check text-primary me-1"></i> Year / Sem:</dt>
+                <dd>4th Year / VII Semester</dd>
+
+                <dt><i class="fa-solid fa-location-dot text-primary me-1"></i> Location:</dt>
+                <dd>Hyderabad, Telangana, India</dd>
+
+                <dt><i class="fa-regular fa-envelope text-primary me-1"></i> Email:</dt>
+                <dd><a href="mailto:deepika.cse@stanley.edu.in">deepika.cse@stanley.edu.in</a></dd>
+              </dl>
+
+              <div class="mt-4 pt-3 border-top d-flex justify-content-between align-items-center">
+                <span class="small text-secondary fw-semibold">Affiliation:</span>
+                <span class="badge bg-primary-subtle text-primary border border-primary-subtle">Osmania University</span>
+              </div>
+            </aside>
+          </div>
+
+          <!-- Bento Card 2: About Me (Personal Narrative & 3 Focus Areas) -->
+          <div class="col-12 col-lg-7">
+            <article class="bento-card">
+              <div class="bento-icon-box">
+                <i class="fa-regular fa-user"></i>
+              </div>
+              <h3 class="h5 fw-bold mb-3">About Me</h3>
+              <p class="text-secondary mb-4" style="line-height: 1.75;">
+                I am <strong>Deepika Goreti</strong>, a Computer Science and Engineering student at <strong>Stanley College of Engineering and Technology for Women</strong>, affiliated with <strong>Osmania University, Hyderabad</strong>. I am passionate about software development, web technologies, and Artificial Intelligence. I enjoy learning new technologies and applying my skills to build practical projects and solve real-world problems.
+              </p>
+
+              <!-- 3 Clean Highlight Cards -->
+              <div class="d-flex flex-column gap-3">
+                <div class="d-flex align-items-start gap-3 p-3 rounded-3 bg-body border">
+                  <div class="text-primary fs-5 mt-1"><i class="fa-solid fa-laptop-code"></i></div>
+                  <div>
+                    <strong class="d-block text-body mb-1">💻 Software Development</strong>
+                    <span class="small text-secondary" style="line-height: 1.6;">Interested in developing user-friendly and responsive web applications using HTML, CSS, JavaScript, Python, Java, and SQL.</span>
+                  </div>
+                </div>
+
+                <div class="d-flex align-items-start gap-3 p-3 rounded-3 bg-body border">
+                  <div class="text-primary fs-5 mt-1"><i class="fa-solid fa-robot"></i></div>
+                  <div>
+                    <strong class="d-block text-body mb-1">🤖 AI &amp; Machine Learning</strong>
+                    <span class="small text-secondary" style="line-height: 1.6;">Exploring Machine Learning and NLP concepts and applying them to projects such as my Digital Mental Health Screening Platform.</span>
+                  </div>
+                </div>
+
+                <div class="d-flex align-items-start gap-3 p-3 rounded-3 bg-body border">
+                  <div class="text-primary fs-5 mt-1"><i class="fa-solid fa-rocket"></i></div>
+                  <div>
+                    <strong class="d-block text-body mb-1">🚀 Career Aspirations</strong>
+                    <span class="small text-secondary" style="line-height: 1.6;">Aspiring to begin my career as a Software Developer and continuously improve my technical, problem-solving, and communication skills through real-world projects and industry experience.</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- -----------------------------------------------------------------------
+         EDUCATION SECTION (Cards + Collapsible Table)
+         ----------------------------------------------------------------------- -->
+    <section id="education" class="content-section">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-pill-tag">// ACADEMICS</span>
+          <h2 class="section-main-heading">Education History</h2>
+          <p class="section-subtext">My academic qualifications and institutional milestones.</p>
+        </div>
+
+        <!-- 3 Clean Education Cards -->
+        <div class="row g-4 mb-4" id="educationCardsContainer">
+          <!-- Populated by js/main.js -->
+        </div>
+
+        <!-- Collapsible Table for Assignment Checklist -->
+        <div class="mt-3">
+          <details class="bg-body p-3 rounded-4 border shadow-sm">
+            <summary class="fw-semibold text-primary cursor-pointer d-flex align-items-center justify-content-between">
+              <span><i class="fa-solid fa-table-list me-2"></i> View Full Qualifications Table (HTML5 Table Syllabus Requirement)</span>
+              <span class="small text-secondary"><i class="fa-solid fa-chevron-down"></i></span>
+            </summary>
+            <div class="table-responsive mt-3">
+              <table class="table clean-academic-table table-hover align-middle mb-0" aria-label="Academic Qualifications Table">
+                <caption class="p-3 text-secondary small">
+                  Academic records certified by Stanley College of Engineering and Technology for Women &amp; State Education Boards.
+                </caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Degree / Examination</th>
+                    <th scope="col">Timeline</th>
+                    <th scope="col">Score</th>
+                    <th scope="col">Coursework &amp; Highlights</th>
+                  </tr>
+                </thead>
+                <tbody id="educationTableBody">
+                  <!-- Populated by js/main.js -->
+                </tbody>
+              </table>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- -----------------------------------------------------------------------
+         SKILLS SECTION (Clean Categorized Grid)
+         ----------------------------------------------------------------------- -->
+    <section id="skills" class="content-section bg-body-tertiary">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-pill-tag">// TECHNICAL SKILLS</span>
+          <h2 class="section-main-heading">Skills &amp; Technologies</h2>
+          <p class="section-subtext">Core competencies across frontend interfaces, backend programming, and modern development tools.</p>
+        </div>
+
+        <!-- Skills Grid -->
+        <div class="row g-4" id="skillsContainer">
+          <!-- Populated by js/main.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- -----------------------------------------------------------------------
+         PROJECTS SECTION (Clean Showcase & Dynamic DOM Filtering)
+         ----------------------------------------------------------------------- -->
+    <section id="projects" class="content-section">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-pill-tag">// PORTFOLIO SHOWCASE</span>
+          <h2 class="section-main-heading">Featured Projects</h2>
+          <p class="section-subtext">Interactive web applications demonstrating semantic HTML5, responsive CSS3/Bootstrap layouts, and dynamic JavaScript DOM manipulation.</p>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="row justify-content-center mb-4 g-3">
+          <div class="col-12 col-md-6 col-lg-5">
+            <div class="input-group">
+              <span class="input-group-text bg-body border-end-0">
+                <i class="fa-solid fa-magnifying-glass text-secondary"></i>
+              </span>
+              <input 
+                type="search" 
+                id="projectSearchInput" 
+                class="form-control border-start-0 ps-0" 
+                placeholder="Search projects by keyword, tech, or title..."
+                aria-label="Search projects">
+            </div>
+          </div>
+        </div>
+
+        <!-- Category Filter Tabs -->
+        <div class="filter-tabs-wrapper" role="group" aria-label="Project Category Filter Buttons">
+          <button type="button" class="filter-tab-btn active" data-filter="all">All Projects</button>
+          <button type="button" class="filter-tab-btn" data-filter="ai">AI &amp; Machine Learning</button>
+          <button type="button" class="filter-tab-btn" data-filter="web">Web &amp; Full Stack</button>
+        </div>
+
+        <!-- Dynamic Projects Grid -->
+        <div class="row g-4" id="projectsContainer">
+          <!-- Populated by js/main.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- -----------------------------------------------------------------------
+         CERTIFICATIONS & ACHIEVEMENTS
+         ----------------------------------------------------------------------- -->
+    <section id="certifications" class="content-section bg-body-tertiary">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-pill-tag">// CREDENTIALS</span>
+          <h2 class="section-main-heading">Certifications &amp; Achievements</h2>
+          <p class="section-subtext">Verified industry credentials and institutional extracurricular honors.</p>
+        </div>
+
+        <div class="row g-4 mb-4" id="certsContainer">
+          <!-- Populated by js/main.js -->
+        </div>
+
+        <!-- Extracurricular Highlight -->
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-8 col-lg-6">
+            <div class="p-3 rounded-4 bg-body border shadow-sm text-center">
+              <div class="d-inline-flex align-items-center gap-2 mb-2 text-primary">
+                <i class="fa-solid fa-users-gear fs-5"></i>
+                <h4 class="h6 fw-bold mb-0">ACM-W Student Chapter</h4>
+              </div>
+              <p class="text-secondary small mb-0">Active core organizer of technical coding workshops, peer mentoring, and hack sprints at Stanley College.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- -----------------------------------------------------------------------
+         CONTACT SECTION (Clean Form with Instant Real-Time Validation)
+         ----------------------------------------------------------------------- -->
+    <section id="contact" class="content-section">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-pill-tag">// GET IN TOUCH</span>
+          <h2 class="section-main-heading">Contact &amp; Inquiries</h2>
+          <p class="section-subtext">Have a question or looking to collaborate? Drop me a message below.</p>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+          <!-- Left: Contact Details -->
+          <div class="col-12 col-lg-4">
+            <div class="contact-sidebar">
+              <div>
+                <h3 class="h4 fw-bold mb-2">Let's Connect</h3>
+                <p class="small text-white-50 mb-4">
+                  Feel free to reach out directly via college email or phone. I typically respond within 24 hours.
+                </p>
+
+                <div class="d-flex align-items-start gap-3 mb-4">
+                  <div class="p-2 bg-white text-primary rounded-3">
+                    <i class="fa-solid fa-location-dot"></i>
+                  </div>
+                  <div>
+                    <span class="d-block small text-white-50">Campus Location</span>
+                    <strong class="d-block small">Stanley College of Engg. &amp; Tech.</strong>
+                    <span class="small">Abids, Hyderabad - 500001</span>
+                  </div>
+                </div>
+
+                <div class="d-flex align-items-start gap-3 mb-4">
+                  <div class="p-2 bg-white text-primary rounded-3">
+                    <i class="fa-solid fa-envelope"></i>
+                  </div>
+                  <div>
+                    <span class="d-block small text-white-50">Direct Email</span>
+                    <a href="mailto:deepika.cse@stanley.edu.in" class="small fw-bold">deepika.cse@stanley.edu.in</a>
+                  </div>
+                </div>
+
+                <div class="d-flex align-items-start gap-3 mb-4">
+                  <div class="p-2 bg-white text-primary rounded-3">
+                    <i class="fa-solid fa-phone"></i>
+                  </div>
+                  <div>
+                    <span class="d-block small text-white-50">Telephone</span>
+                    <a href="tel:+919876543210" class="small fw-bold">+91 98765 43210</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="pt-3 border-top border-white-50">
+                <span class="d-block small text-white-50 mb-2">Social Profiles</span>
+                <div class="d-flex gap-2">
+                  <a href="https://github.com/deepika-dev" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-light rounded-circle" style="width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center;" title="GitHub">
+                    <i class="fa-brands fa-github text-primary"></i>
+                  </a>
+                  <a href="https://linkedin.com/in/deepika-cse" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-light rounded-circle" style="width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center;" title="LinkedIn">
+                    <i class="fa-brands fa-linkedin-in text-primary"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Clean Form -->
+          <div class="col-12 col-lg-8">
+            <div class="contact-form-panel">
+              <div id="formAlertContainer" aria-live="polite"></div>
+
+              <form id="contactForm" novalidate autocomplete="on">
+                <fieldset>
+                  <legend class="h5 fw-bold mb-4 text-body d-flex align-items-center">
+                    <i class="fa-solid fa-paper-plane text-primary me-2"></i> Send an Inquiry Message
+                  </legend>
+
+                  <div class="row g-3">
+                    <!-- Full Name -->
+                    <div class="col-12 col-md-6 form-field-wrapper">
+                      <div class="form-floating">
+                        <input 
+                          type="text" 
+                          class="form-control" 
+                          id="contactName" 
+                          name="fullName"
+                          placeholder="Your Full Name"
+                          required 
+                          minlength="3" 
+                          maxlength="50"
+                          aria-describedby="nameError">
+                        <label for="contactName"><i class="fa-regular fa-user me-1"></i> Full Name *</label>
+                      </div>
+                      <div id="nameError" class="invalid-feedback"></div>
+                    </div>
+
+                    <!-- Email Address -->
+                    <div class="col-12 col-md-6 form-field-wrapper">
+                      <div class="form-floating">
+                        <input 
+                          type="email" 
+                          class="form-control" 
+                          id="contactEmail" 
+                          name="email"
+                          placeholder="name@example.com" 
+                          required
+                          aria-describedby="emailError">
+                        <label for="contactEmail"><i class="fa-regular fa-envelope me-1"></i> Email Address *</label>
+                      </div>
+                      <div id="emailError" class="invalid-feedback"></div>
+                    </div>
+
+                    <!-- Phone Number -->
+                    <div class="col-12 col-md-6 form-field-wrapper">
+                      <div class="form-floating">
+                        <input 
+                          type="tel" 
+                          class="form-control" 
+                          id="contactPhone" 
+                          name="phone"
+                          placeholder="10-digit mobile number" 
+                          required
+                          aria-describedby="phoneError">
+                        <label for="contactPhone"><i class="fa-solid fa-phone me-1"></i> Phone (10 digits) *</label>
+                      </div>
+                      <div id="phoneError" class="invalid-feedback"></div>
+                    </div>
+
+                    <!-- Subject -->
+                    <div class="col-12 col-md-6 form-field-wrapper">
+                      <div class="form-floating">
+                        <select class="form-select" id="contactSubject" name="subject" required aria-describedby="subjectError">
+                          <option value="" selected disabled>Select an option...</option>
+                          <option value="Internship Opportunity">Full Stack Internship Opportunity</option>
+                          <option value="Project Collaboration">Project Collaboration / Hackathon</option>
+                          <option value="Academic Inquiry">Academic / FSD Assignment Feedback</option>
+                          <option value="General Question">General Networking</option>
+                        </select>
+                        <label for="contactSubject"><i class="fa-solid fa-list-check me-1"></i> Inquiry Subject *</label>
+                      </div>
+                      <div id="subjectError" class="invalid-feedback"></div>
+                    </div>
+
+                    <!-- Message Body -->
+                    <div class="col-12 form-field-wrapper">
+                      <div class="form-floating">
+                        <textarea 
+                          class="form-control" 
+                          id="contactMessage" 
+                          name="message"
+                          placeholder="Type your message here..." 
+                          style="height: 130px" 
+                          required 
+                          minlength="15" 
+                          maxlength="500"
+                          aria-describedby="messageError"></textarea>
+                        <label for="contactMessage"><i class="fa-regular fa-comment-dots me-1"></i> Your Message (min 15 chars) *</label>
+                      </div>
+                      <div class="d-flex justify-content-between align-items-center mt-1">
+                        <div id="messageError" class="invalid-feedback d-block"></div>
+                        <span id="charCount" class="text-secondary small font-monospace">0 / 500</span>
+                      </div>
+                    </div>
+
+                    <!-- Checkbox Consent -->
+                    <div class="col-12 form-field-wrapper">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="contactConsent" name="consent" required aria-describedby="consentError">
+                        <label class="form-check-label small text-secondary" for="contactConsent">
+                          I confirm that the submitted details are correct. *
+                        </label>
+                        <div id="consentError" class="invalid-feedback"></div>
+                      </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="col-12 d-flex flex-wrap gap-2 pt-2">
+                      <button type="submit" id="contactSubmitBtn" class="btn-solid-brand">
+                        <i class="fa-solid fa-paper-plane"></i> Submit Inquiry
+                      </button>
+                      <button type="button" id="contactResetBtn" class="btn-outline-brand">
+                        <i class="fa-solid fa-arrow-rotate-left"></i> Reset Form
+                      </button>
+                    </div>
+                  </div>
+                </fieldset>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================================
+       3. MODALS
+       ========================================================================= -->
+  <!-- Project Detail Modal -->
+  <div class="modal fade" id="projectDetailModal" tabindex="-1" aria-labelledby="modalProjectTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
+        <div class="modal-header border-bottom px-4 pt-4">
+          <h4 class="modal-title fw-bold" id="modalProjectTitle">Project Details</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-4">
+          <div class="row g-4 align-items-center mb-4">
+            <div class="col-12 col-md-6">
+              <img id="modalProjectImage" src="" alt="Project Preview" class="img-fluid rounded-3 border shadow-sm w-100">
+            </div>
+            <div class="col-12 col-md-6">
+              <h6 class="text-uppercase text-secondary small fw-bold mb-2">Technologies Used</h6>
+              <div id="modalProjectTech" class="d-flex flex-wrap mb-3"></div>
+              
+              <h6 class="text-uppercase text-secondary small fw-bold mb-2">Overview</h6>
+              <p id="modalProjectDesc" class="text-secondary small mb-0" style="line-height: 1.6;"></p>
+            </div>
+          </div>
+
+          <h6 class="fw-bold mb-2">Key Technical Implementations &amp; Features:</h6>
+          <ul id="modalProjectFeatures" class="list-unstyled text-secondary small mb-4 ps-1"></ul>
+
+          <div class="d-flex gap-2 justify-content-end border-top pt-3">
+            <a id="modalProjectLive" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm rounded-pill px-3">
+              <i class="fa-solid fa-arrow-up-right-from-square me-1"></i> Launch Demo
+            </a>
+            <a id="modalProjectGithub" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary btn-sm rounded-pill px-3">
+              <i class="fa-brands fa-github me-1"></i> Source Code
+            </a>
+            <button type="button" class="btn btn-secondary btn-sm rounded-pill px-3" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Form Submission Success Modal -->
+  <div class="modal fade" id="submissionSuccessModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 shadow-lg text-center p-4 rounded-4">
+        <div class="modal-body">
+          <div class="mb-3 text-success">
+            <i class="fa-solid fa-circle-check display-3"></i>
+          </div>
+          <h4 class="fw-bold mb-2" id="successModalLabel">Inquiry Submitted Successfully!</h4>
+          <p class="text-secondary small mb-4">
+            Thank you, <strong id="successModalName"></strong>! Your message has passed client-side validation and was processed.
+          </p>
+
+          <div class="bg-body-secondary p-3 rounded-3 text-start small mb-4">
+            <div class="row g-2">
+              <div class="col-4 text-secondary">Email:</div>
+              <div class="col-8 fw-semibold text-truncate" id="successModalEmail"></div>
+              <div class="col-4 text-secondary">Subject:</div>
+              <div class="col-8 fw-semibold" id="successModalSubject"></div>
+              <div class="col-4 text-secondary">Timestamp:</div>
+              <div class="col-8 fw-semibold" id="successModalTime"></div>
+            </div>
+          </div>
+
+          <button type="button" class="btn btn-primary rounded-pill px-4" data-bs-dismiss="modal">
+            <i class="fa-solid fa-thumbs-up me-1"></i> Continue Browsing
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       4. FOOTER
+       ========================================================================= -->
+  <footer class="footer-simple">
+    <div class="container">
+      <div class="row g-4 align-items-center mb-3">
+        <div class="col-12 col-md-6 text-center text-md-start">
+          <div class="d-flex align-items-center justify-content-center justify-content-md-start gap-2 mb-1">
+            <img src="assets/images/stanley-logo.svg" alt="Stanley Logo" style="width: 26px; height: 26px;">
+            <h5 class="fw-bold mb-0 text-body">Deepika Goreti</h5>
+          </div>
+          <p class="small text-secondary mb-0">
+            Stanley College of Engineering and Technology for Women • Department of CSE<br>
+            Osmania University, Hyderabad
+          </p>
+        </div>
+        
+        <div class="col-12 col-md-6 text-center text-md-end">
+          <div class="small text-secondary mb-1">
+            <span class="fw-semibold text-body">Computer Science &amp; Engineering</span> • Stanley College
+          </div>
+          <nav aria-label="Footer Navigation" class="d-inline-flex flex-wrap gap-3 justify-content-center justify-content-md-end small">
+            <a href="#home" class="text-secondary text-decoration-none">Home</a>
+            <a href="#about" class="text-secondary text-decoration-none">About</a>
+            <a href="#education" class="text-secondary text-decoration-none">Education</a>
+            <a href="#skills" class="text-secondary text-decoration-none">Skills</a>
+            <a href="#projects" class="text-secondary text-decoration-none">Projects</a>
+            <a href="#contact" class="text-secondary text-decoration-none">Contact</a>
+          </nav>
+        </div>
+      </div>
+
+      <div class="pt-3 border-top text-center small text-secondary">
+        <p class="mb-0">
+          &copy; <time datetime="2026">2026</time> Deepika Goreti. Built with Semantic HTML5, CSS3, Bootstrap 5.3, and JavaScript ES6+. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button id="backToTopBtn" class="back-to-top-btn" type="button" aria-label="Scroll back to top of the page">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- =========================================================================
+       5. JAVASCRIPT MODULES
+       ========================================================================= -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="js/data.js"></script>
+  <script src="js/validation.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

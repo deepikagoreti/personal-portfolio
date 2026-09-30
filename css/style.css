@@ -1,0 +1,808 @@
+/**
+ * Modern, Structured & Ultra-Clean Stylesheet for Deepika's Portfolio
+ * Design Philosophy: Modern Bento Grid + Minimalist Glassmorphism
+ * Tested for: High visual clarity, intuitive layout, zero clutter, responsive flow.
+ */
+
+/* ==========================================================================
+   1. COLOR PALETTE & DESIGN SYSTEM
+   ========================================================================== */
+:root {
+  /* Brand Accents */
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+  --primary-light: #eef2ff;
+  --primary-glow: rgba(79, 70, 229, 0.15);
+
+  --secondary: #0284c7;
+  --accent: #f59e0b;
+  --success: #10b981;
+  --danger: #ef4444;
+
+  /* Surfaces (Light Theme) */
+  --bg-page: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-subtle: #f1f5f9;
+  --bg-elevated: #ffffff;
+  
+  --text-title: #0f172a;
+  --text-body: #334155;
+  --text-muted: #64748b;
+  --text-light: #94a3b8;
+
+  --border-color: #e2e8f0;
+  --border-hover: #cbd5e1;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
+  --shadow-lg: 0 20px 35px -10px rgba(0, 0, 0, 0.08);
+
+  /* Fonts */
+  --font-heading: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Fira Code', monospace;
+
+  /* Transitions */
+  --trans: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-bs-theme="dark"] {
+  --primary: #6366f1;
+  --primary-hover: #4f46e5;
+  --primary-light: rgba(99, 102, 241, 0.12);
+  --primary-glow: rgba(99, 102, 241, 0.25);
+
+  --secondary: #38bdf8;
+  --accent: #fbbf24;
+
+  --bg-page: #0b0f19;
+  --bg-card: #111827;
+  --bg-subtle: #172033;
+  --bg-elevated: #1e293b;
+
+  --text-title: #f8fafc;
+  --text-body: #cbd5e1;
+  --text-muted: #94a3b8;
+  --text-light: #64748b;
+
+  --border-color: #1e293b;
+  --border-hover: #334155;
+
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 12px 24px -4px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 20px 35px -8px rgba(0, 0, 0, 0.5);
+}
+
+/* ==========================================================================
+   2. GLOBAL BASE STYLES
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-page);
+  color: var(--text-body);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color var(--trans), color var(--trans);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--text-title);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.25;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color var(--trans);
+}
+
+a:hover {
+  color: var(--primary-hover);
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -60px;
+  left: 20px;
+  background: var(--primary);
+  color: #ffffff;
+  padding: 10px 20px;
+  z-index: 10000;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: top var(--trans);
+}
+
+.skip-link:focus {
+  top: 15px;
+  outline: 3px solid var(--accent);
+}
+
+/* ==========================================================================
+   3. FLOATING GLASS NAVBAR
+   ========================================================================== */
+.floating-navbar-container {
+  position: fixed;
+  top: 1.25rem;
+  left: 0;
+  right: 0;
+  z-index: 1050;
+  padding: 0 1rem;
+}
+
+.floating-navbar {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-color);
+  border-radius: 100px;
+  padding: 0.6rem 1.4rem;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08);
+  transition: all var(--trans);
+}
+
+[data-bs-theme="dark"] .floating-navbar {
+  background: rgba(17, 24, 39, 0.85);
+  border-color: var(--border-color);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.4);
+}
+
+.nav-brand-group {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.15rem;
+  color: var(--text-title);
+}
+
+.nav-crest-img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.nav-link-pill {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-muted) !important;
+  padding: 0.45rem 0.85rem !important;
+  border-radius: 100px;
+  transition: all var(--trans);
+}
+
+.nav-link-pill:hover,
+.nav-link-pill.active {
+  color: var(--primary) !important;
+  background-color: var(--primary-light);
+}
+
+.theme-pill-btn {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-title);
+  border-radius: 100px;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  transition: all var(--trans);
+}
+
+.theme-pill-btn:hover {
+  border-color: var(--primary);
+  background-color: var(--primary-light);
+}
+
+/* ==========================================================================
+   4. SECTION LAYOUT & HEADINGS
+   ========================================================================== */
+.content-section {
+  padding: 5.5rem 0;
+}
+
+.section-head {
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto 3rem auto;
+}
+
+.section-pill-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--primary);
+  background-color: var(--primary-light);
+  padding: 0.3rem 0.85rem;
+  border-radius: 100px;
+  margin-bottom: 0.75rem;
+  border: 1px solid var(--primary-glow);
+}
+
+.section-main-heading {
+  font-size: clamp(2rem, 3.5vw, 2.5rem);
+  font-weight: 800;
+  margin-bottom: 0.65rem;
+}
+
+.section-subtext {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   5. HERO SECTION (Clean, Centered, High Impact)
+   ========================================================================== */
+.hero-block {
+  padding-top: 8.5rem;
+  padding-bottom: 4.5rem;
+  background: radial-gradient(circle at 50% 15%, rgba(79, 70, 229, 0.08) 0%, transparent 60%);
+}
+
+.hero-college-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--primary);
+  background-color: var(--primary-light);
+  border: 1px solid var(--primary-glow);
+  padding: 0.45rem 1.1rem;
+  border-radius: 100px;
+  margin-bottom: 1.5rem;
+}
+
+.hero-title-text {
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.15;
+  margin-bottom: 1.25rem;
+}
+
+.hero-gradient {
+  background: linear-gradient(135deg, var(--primary) 0%, #06b6d4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle-box {
+  font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+  font-weight: 600;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero-sub-bio {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  max-width: 680px;
+  margin: 0 auto 2.25rem auto;
+  line-height: 1.7;
+}
+
+/* Modern Primary Buttons */
+.btn-solid-brand {
+  background: var(--primary);
+  color: #ffffff !important;
+  font-weight: 600;
+  padding: 0.75rem 1.6rem;
+  border-radius: 100px;
+  border: none;
+  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.35);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all var(--trans);
+}
+
+.btn-solid-brand:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(79, 70, 229, 0.45);
+}
+
+.btn-outline-brand {
+  background: transparent;
+  color: var(--text-title) !important;
+  font-weight: 600;
+  padding: 0.75rem 1.6rem;
+  border-radius: 100px;
+  border: 1.5px solid var(--border-color);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all var(--trans);
+}
+
+.btn-outline-brand:hover {
+  border-color: var(--primary);
+  color: var(--primary) !important;
+  background-color: var(--primary-light);
+  transform: translateY(-2px);
+}
+
+/* 4 Metrics Strip (Clean & Balanced) */
+.hero-metrics-strip {
+  max-width: 900px;
+  margin: 3.5rem auto 0 auto;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 1.5rem 2rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.metric-unit {
+  text-align: center;
+}
+
+.metric-val {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+
+.metric-desc {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   6. BENTO GRID ARCHITECTURE (Clean & Structured About Section)
+   ========================================================================== */
+.bento-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+  height: 100%;
+  transition: transform var(--trans), box-shadow var(--trans), border-color var(--trans);
+}
+
+.bento-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-hover);
+}
+
+.bento-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background-color: var(--primary-light);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.bento-meta-table {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.65rem 1.2rem;
+  font-size: 0.95rem;
+  margin-bottom: 0;
+}
+
+.bento-meta-table dt {
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.bento-meta-table dd {
+  font-weight: 600;
+  color: var(--text-title);
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   7. EDUCATION & TIMELINE CARDS
+   ========================================================================== */
+.edu-card-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 18px;
+  padding: 1.75rem;
+  box-shadow: var(--shadow-sm);
+  height: 100%;
+  transition: all var(--trans);
+}
+
+.edu-card-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary);
+}
+
+.edu-year-chip {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--primary);
+  background-color: var(--primary-light);
+  padding: 0.25rem 0.75rem;
+  border-radius: 6px;
+}
+
+.edu-score-chip {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--success);
+  background-color: rgba(16, 185, 129, 0.1);
+  padding: 0.25rem 0.75rem;
+  border-radius: 6px;
+}
+
+/* Collapsible table for assignment requirements */
+.clean-academic-table {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.clean-academic-table th {
+  background-color: var(--bg-subtle);
+  color: var(--text-title);
+  font-size: 0.825rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.clean-academic-table td {
+  padding: 1.1rem 1.25rem;
+  vertical-align: middle;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-body);
+}
+
+/* ==========================================================================
+   8. SKILLS SECTION (Clean Categorized Cards & Track Bars)
+   ========================================================================== */
+.skill-card-clean {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 18px;
+  padding: 1.75rem;
+  box-shadow: var(--shadow-sm);
+  height: 100%;
+  transition: all var(--trans);
+}
+
+.skill-card-clean:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary);
+}
+
+.skill-row {
+  margin-bottom: 1.15rem;
+}
+
+.skill-row:last-child {
+  margin-bottom: 0;
+}
+
+.skill-track-bar {
+  height: 7px;
+  background-color: var(--border-color);
+  border-radius: 100px;
+  overflow: hidden;
+  margin-top: 0.4rem;
+}
+
+.skill-fill-progress {
+  height: 100%;
+  border-radius: 100px;
+  transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ==========================================================================
+   9. PROJECTS SECTION (Clean Portfolio Grid)
+   ========================================================================== */
+.filter-tabs-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2.25rem;
+}
+
+.filter-tab-btn {
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.45rem 1.25rem;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all var(--trans);
+}
+
+.filter-tab-btn:hover,
+.filter-tab-btn.active {
+  background: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
+}
+
+.project-card-modern {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--trans);
+}
+
+.project-card-modern:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 35px -10px rgba(79, 70, 229, 0.15);
+  border-color: var(--primary);
+}
+
+.project-img-box {
+  height: 210px;
+  background-color: var(--bg-subtle);
+  overflow: hidden;
+  position: relative;
+}
+
+.project-img-display {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--trans);
+}
+
+.project-card-modern:hover .project-img-display {
+  transform: scale(1.04);
+}
+
+.tech-tag-chip {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.65rem;
+  border-radius: 6px;
+  background-color: var(--primary-light);
+  color: var(--primary);
+  display: inline-block;
+  margin: 0.2rem;
+}
+
+/* ==========================================================================
+   10. INTERACTIVE TECH LAB & DYNAMIC DOM SHOWCASE
+   ========================================================================== */
+.lab-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 22px;
+  padding: 2.25rem;
+  box-shadow: var(--shadow-sm);
+  margin-top: 3.5rem;
+}
+
+.repo-card-box {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 1.25rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--trans);
+}
+
+.repo-card-box:hover {
+  border-color: var(--primary);
+  transform: translateY(-3px);
+  background: var(--bg-card);
+}
+
+/* ==========================================================================
+   11. CREDENTIALS & CERTIFICATIONS
+   ========================================================================== */
+.cert-card-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  height: 100%;
+  transition: all var(--trans);
+}
+
+.cert-card-box:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary);
+}
+
+/* ==========================================================================
+   12. CONTACT SECTION & VALIDATION STYLING
+   ========================================================================== */
+.contact-sidebar {
+  background: linear-gradient(135deg, var(--primary) 0%, #312e81 100%);
+  color: #ffffff;
+  border-radius: 22px;
+  padding: 2.5rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--shadow-md);
+}
+
+.contact-sidebar a {
+  color: #e0e7ff;
+}
+
+.contact-sidebar a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.contact-form-panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 22px;
+  padding: 2.5rem;
+  box-shadow: var(--shadow-md);
+}
+
+.form-floating > .form-control,
+.form-floating > .form-select {
+  border-radius: 12px;
+  border: 1.5px solid var(--border-color);
+  background-color: var(--bg-card);
+  color: var(--text-title);
+  font-size: 0.95rem;
+  transition: border-color var(--trans), box-shadow var(--trans);
+}
+
+.form-floating > .form-control:focus,
+.form-floating > .form-select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px var(--primary-glow);
+}
+
+.form-control.is-valid {
+  border-color: var(--success) !important;
+}
+
+.form-control.is-invalid {
+  border-color: var(--danger) !important;
+}
+
+/* ==========================================================================
+   13. FOOTER & BACK TO TOP
+   ========================================================================== */
+.footer-simple {
+  background-color: var(--bg-card);
+  border-top: 1px solid var(--border-color);
+  padding: 3.5rem 0 2rem 0;
+}
+
+.back-to-top-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  color: #ffffff;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all var(--trans);
+  z-index: 1000;
+  cursor: pointer;
+}
+
+.back-to-top-btn.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top-btn:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-3px);
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   14. RESPONSIVE QUERIES
+   ========================================================================== */
+@media (max-width: 991.98px) {
+  .floating-navbar-container {
+    position: static;
+    padding: 1rem;
+  }
+
+  .floating-navbar {
+    border-radius: 18px;
+  }
+
+  .hero-block {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .contact-sidebar {
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .hero-title-text {
+    font-size: 2.1rem;
+  }
+
+  .hero-metrics-strip {
+    padding: 1.25rem 1rem;
+  }
+
+  .metric-val {
+    font-size: 1.7rem;
+  }
+
+  .contact-form-panel {
+    padding: 1.5rem 1.2rem;
+  }
+}

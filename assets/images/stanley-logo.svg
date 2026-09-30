@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <defs>
+    <linearGradient id="crestGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#b91c1c" />
+      <stop offset="100%" stop-color="#881337" />
+    </linearGradient>
+  </defs>
+  <circle cx="100" cy="100" r="92" fill="url(#crestGrad)" stroke="#f59e0b" stroke-width="4"/>
+  <circle cx="100" cy="100" r="82" fill="none" stroke="#fef08a" stroke-width="1.5" stroke-dasharray="3 3"/>
+  
+  <!-- Stanley College Crest Icon: Book, Lamp/Flame & Cog -->
+  <!-- Cog wheel -->
+  <circle cx="100" cy="95" r="38" fill="none" stroke="#f59e0b" stroke-width="4" stroke-dasharray="8 6"/>
+  <!-- Open Book -->
+  <path d="M70 120 Q100 110 100 126 Q100 110 130 120 L130 142 Q100 132 100 148 Q100 132 70 142 Z" fill="#ffffff" stroke="#f59e0b" stroke-width="1.5"/>
+  <line x1="100" y1="126" x2="100" y2="148" stroke="#b91c1c" stroke-width="2"/>
+  
+  <!-- Knowledge Torch / Flame -->
+  <path d="M100 60 C92 75 92 82 100 95 C108 82 108 75 100 60 Z" fill="#f59e0b"/>
+  <path d="M100 68 C96 76 96 82 100 88 C104 82 104 76 100 68 Z" fill="#fef08a"/>
+  
+  <!-- Stars -->
+  <polygon points="50,95 53,88 60,88 55,83 57,76 50,80 43,76 45,83 40,88 47,88" fill="#fef08a"/>
+  <polygon points="150,95 153,88 160,88 155,83 157,76 150,80 143,76 145,83 140,88 147,88" fill="#fef08a"/>
+
+  <!-- Texts around or ribbon -->
+  <path id="textArc" d="M 30,100 A 70,70 0 1,1 170,100" fill="none" />
+  <text font-family="sans-serif" font-size="11" font-weight="bold" fill="#fef08a" letter-spacing="1">
+    <textPath href="#textArc" startOffset="50%" text-anchor="middle">
+      STANLEY COLLEGE • CSE
+    </textPath>
+  </text>
+  <text x="100" y="172" font-family="sans-serif" font-size="9" font-weight="bold" fill="#ffffff" text-anchor="middle" letter-spacing="1.5">HYDERABAD</text>
+</svg>
